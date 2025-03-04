@@ -1,0 +1,4 @@
+- The EC2PrimeDeployRole needs S3 permissions to facilitate seamless application deployments, configuration management, logging, and automated updates. Granting least privilege access ensures security while enabling necessary functionality.
+  This role grants the EC2 instance permissions to access AWS services needed for deployment.
+  It needs s3 permissions because CodeDeploy stores deployment artifacts in an S3 bucket before transfering the deployment artifacts to the EC2 instance.
+
