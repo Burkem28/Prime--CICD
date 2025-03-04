@@ -1,5 +1,5 @@
 # The EC2PrimeDeployRole needs S3 permissions to facilitate seamless application deployments, configuration management, logging, and automated updates. Granting least privilege access ensures security while enabling necessary functionality.
-  This role grants the EC2 instance permissions to access AWS services needed for deployment.
+  This role grants the EC2 instance permissions to access AWS services that are needed for deployment.
   It needs s3 permissions because CodeDeploy stores deployment artifacts in an S3 bucket before transfering the deployment artifacts to the EC2 instance.
 
 # How does appspec.yml ensure the application runs after deployment?
@@ -8,4 +8,6 @@
   It ensures that the prime.py code is correctly copies, dependencies are installed, and the application is started
 
 # If the EC2 instance were in a private subnet, what changes would be needed for CodeDeploy to work?
-
+  Without a private subnet for direct internet access, you need either:
+    A NAT Gateway or NAT Instance to allow outbound access for downloading updates.
+    VPC Endpoints for CodeDeploy and S3 to enable direct communication within AWS.
